@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1qtica1n28wf"]
+
+[ext_resource type="PackedScene" uid="uid://udjcvke4ol3g" path="res://recursos/Torch.glb" id="1_02iic"]
+
+[node name="Root Scene" instance=ExtResource("1_02iic")]
+
+[node name="Torch" parent="RootNode" index="0"]
+cast_shadow = 0

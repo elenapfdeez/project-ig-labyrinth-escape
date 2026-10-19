@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpcuwwvda6ba7"]
+
+[ext_resource type="PackedScene" uid="uid://drie8kf1x1vkn" path="res://recursos/Key.glb" id="1_w2chs"]
+[ext_resource type="Shader" uid="uid://xjrlqaskoi0d" path="res://shaders/brillollave.gdshader" id="2_urw3d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihpw7"]
+render_priority = 0
+shader = ExtResource("2_urw3d")
+shader_parameter/intensidad_brillo = 0.05
+shader_parameter/velocidad = 3.0
+
+[node name="Root Scene" instance=ExtResource("1_w2chs")]
+
+[node name="Key3" parent="RootNode" index="0"]
+material_override = SubResource("ShaderMaterial_ihpw7")

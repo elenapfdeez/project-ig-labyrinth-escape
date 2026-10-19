@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=3 uid="uid://bq2dyrhcnnpm3"]
+
+[ext_resource type="Script" uid="uid://bwb7rdai1ip3y" path="res://scripts/hud.gd" id="1_0sskl"]
+[ext_resource type="Script" uid="uid://ca8a258k287kp" path="res://scripts/vida.gd" id="1_5u87e"]
+[ext_resource type="Texture2D" uid="uid://bqrsujwflneoc" path="res://recursos/pngtree-pixel-art-red-heart-vector-png-image_16719421.webp" id="2_0sskl"]
+[ext_resource type="FontFile" uid="uid://ut3log2s0c1v" path="res://Fuentes/Lost Tumbler.ttf" id="4_hrvm2"]
+[ext_resource type="Shader" uid="uid://dxvskkfixpqm4" path="res://shaders/vignette.gdshader" id="5_8qmdo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qmdo"]
+shader = ExtResource("5_8qmdo")
+shader_parameter/radio = 0.7
+shader_parameter/suavizado = 0.6
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qmdo"]
+font = ExtResource("4_hrvm2")
+font_size = 30
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.32156864)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hrvm2"]
+font = ExtResource("4_hrvm2")
+font_size = 35
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_0sskl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8qmdo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.015
+anchor_right = 0.075
+anchor_bottom = 0.072
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.16, 0.16)
+script = ExtResource("1_5u87e")
+
+[node name="Corazon1" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_0sskl")
+
+[node name="Corazon2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_0sskl")
+
+[node name="Corazon3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_0sskl")
+
+[node name="ColorRectDano" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.92156863, 0.16862746, 0, 0)
+
+[node name="MensajeTexto" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_8qmdo")
+
+[node name="InterfazVictoria" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InterfazVictoria"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="InterfazVictoria/VBoxContainer"]
+layout_mode = 2
+text = "Has escapado!"
+label_settings = SubResource("LabelSettings_hrvm2")
+
+[node name="Boton_reiniciar" type="Button" parent="InterfazVictoria/VBoxContainer"]
+layout_mode = 2
+text = "Volver a jugar"
+
+[node name="Boton_cerrar" type="Button" parent="InterfazVictoria/VBoxContainer"]
+layout_mode = 2
+text = "Cerrar "

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0n7jxt0stq6u"]
+
+[ext_resource type="PackedScene" uid="uid://dp5xt65i5hemk" path="res://recursos/Chest.glb" id="1_kj2cx"]
+
+[node name="Root Scene" instance=ExtResource("1_kj2cx")]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="RootNode" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.74247074, -0.5147376, 0.4435827, 0.16728985)
